@@ -12,7 +12,7 @@
 }
 .site-head { backdrop-filter: blur(12px); }
 .brand { font-family: var(--display); font-size: 1.5rem; gap: .45rem; }
-.brand::before { content: ""; width: 1.4rem; height: 1.4rem; background: var(--accent); border-radius: 50% 0 50% 50%; rotate: -45deg; }
+.site-foot { --logo-fill: #b9d3a6; }
 .btn { font-weight: 700; }
 @keyframes fade { from { opacity: 0; transform: translateY(.75rem); } }
 
