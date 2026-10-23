@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table QR codes</title>
+  <meta name="description" content="Printable QR codes for each table. Guests scan one to open the menu and order to that table.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#e4ebd8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="core.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="config.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="tables">
+<main id="main">
+  <header class="page-head wrap">
+    <h1>Table QR codes</h1>
+    <p>One code per table. Print the sheet, cut along the lines and stand one on each table. Scanning a code opens the menu already set to that table.</p>
+    <div class="hero-actions"><button class="btn btn-primary" type="button" data-print>Print all codes</button></div>
+  </header>
+  <ul class="wrap qr-grid" data-qr-grid></ul>
+</main>
+</body>
+</html>

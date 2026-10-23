@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu</title>
+  <meta name="description" content="Coffee, tea, breakfast, bakes and sandwiches with prices. Order from your table by scanning its QR code.">
+  <meta name="theme-color" content="#e4ebd8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="core.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="config.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="menu">
+<main id="main">
+  <div class="table-banner" data-table-banner></div>
+  <header class="menu-head wrap">
+    <h1>Menu</h1>
+    <label class="field search"><span class="sr-only">Search the menu</span><input type="search" placeholder="Search, like cold brew" data-menu-search></label>
+  </header>
+  <nav class="cat-tabs" aria-label="Menu sections"><div class="wrap" data-cat-tabs></div></nav>
+  <div class="wrap menu-body" data-menu></div>
+
+  <div class="tray-bar" data-tray-bar hidden>
+    <button class="tray-btn" type="button" data-open-tray><span data-tray-count></span><span>View order</span><b data-tray-total></b></button>
+  </div>
+
+  <dialog class="sheet" data-sheet aria-labelledby="sheet-title">
+    <div class="sheet-body" data-sheet-body></div>
+  </dialog>
+</main>
+</body>
+</html>

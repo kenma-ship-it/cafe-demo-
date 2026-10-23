@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviews</title>
+  <meta name="description" content="What people say about the coffee, the food and ordering from the table. Read reviews or write your own.">
+  <meta name="theme-color" content="#e4ebd8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="core.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="config.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="reviews">
+<main id="main">
+  <header class="page-head wrap">
+    <h1>Reviews</h1>
+    <p>Honest notes from people who sat here. Tap a star bar to filter, or add your own below.</p>
+  </header>
+  <div class="wrap reviews-layout" data-reviews>
+    <aside class="reviews-side">
+      <div data-review-summary></div>
+      <form class="review-form" data-review-form novalidate>
+        <h2>Write a review</h2>
+        <fieldset class="star-input">
+          <legend class="sr-only">Your rating</legend>
+          <input type="radio" name="rating" value="5" id="r5"><label for="r5" title="5 stars">★<span class="sr-only">5 stars</span></label>
+          <input type="radio" name="rating" value="4" id="r4"><label for="r4" title="4 stars">★<span class="sr-only">4 stars</span></label>
+          <input type="radio" name="rating" value="3" id="r3"><label for="r3" title="3 stars">★<span class="sr-only">3 stars</span></label>
+          <input type="radio" name="rating" value="2" id="r2"><label for="r2" title="2 stars">★<span class="sr-only">2 stars</span></label>
+          <input type="radio" name="rating" value="1" id="r1"><label for="r1" title="1 star">★<span class="sr-only">1 star</span></label>
+        </fieldset>
+        <label class="field"><span>Your name</span><input name="name" required minlength="2" autocomplete="name"></label>
+        <label class="field"><span>How did you visit?</span><select name="tag"><option value="">Choose one</option></select></label>
+        <label class="field"><span>Your review</span><textarea name="text" required minlength="10" placeholder="What did you have? Where did you sit?"></textarea></label>
+        <p class="step-error" aria-live="polite"></p>
+        <button class="btn btn-primary" type="submit">Post review</button>
+      </form>
+    </aside>
+    <div class="reviews-main">
+      <div class="reviews-bar">
+        <h2>All reviews</h2>
+        <label class="field sort"><span class="sr-only">Sort reviews</span><select data-review-sort><option value="new">Newest first</option><option value="top">Highest rated</option></select></label>
+      </div>
+      <ul class="review-list" data-review-list></ul>
+    </div>
+  </div>
+</main>
+</body>
+</html>

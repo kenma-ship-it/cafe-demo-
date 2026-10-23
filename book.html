@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a table</title>
+  <meta name="description" content="Book a table and choose where you sit: the garden, the window bar, the long table or the reading nook.">
+  <meta name="theme-color" content="#e4ebd8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="core.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="config.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="book">
+<main id="main" class="wrap book-layout" data-wizard>
+  <div class="book-main">
+    <header class="page-head page-head-tight"><h1>Book a table</h1></header>
+    <ol class="steps-nav" data-step-nav><li>When</li><li>Where</li><li>Your details</li></ol>
+
+    <form id="booking" novalidate>
+      <fieldset class="step" data-msg="Choose a day and a time.">
+        <legend class="step-title">When are you coming?</legend>
+        <div class="stepper">
+          <button type="button" data-dec aria-label="One person fewer">−</button>
+          <output data-party-out aria-live="polite">2 people</output>
+          <button type="button" data-inc aria-label="One person more">+</button>
+          <input type="hidden" name="party" value="2">
+        </div>
+        <div class="days" data-days></div>
+        <div data-times></div>
+        <p class="step-error" aria-live="polite"></p>
+        <div class="step-actions"><button class="btn btn-primary" type="button" data-next>Choose where to sit</button></div>
+      </fieldset>
+
+      <fieldset class="step" hidden data-msg="Choose where you would like to sit.">
+        <legend class="step-title">Where would you like to sit?</legend>
+        <p class="step-lede">Places that are full at your time are switched off.</p>
+        <div class="seat-opts" data-seat-opts></div>
+        <p class="step-error" aria-live="polite"></p>
+        <div class="step-actions">
+          <button class="btn btn-primary" type="button" data-next>Add your details</button>
+          <button class="btn btn-link" type="button" data-back>Back</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="step" hidden>
+        <legend class="step-title">Who is the booking for?</legend>
+        <div class="grid-2">
+          <label class="field"><span>Name</span><input name="name" autocomplete="name" required minlength="2"></label>
+          <label class="field"><span>Mobile number</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[\d+ \(\)\-]{10,}"></label>
+        </div>
+        <label class="field" style="margin-top:1rem"><span>Anything else? <small>(optional)</small></span><textarea name="notes" placeholder="A birthday, a pram, a dog that likes the garden…"></textarea></label>
+        <p class="step-error" aria-live="polite"></p>
+        <div class="step-actions">
+          <button class="btn btn-primary" type="submit">Book the table</button>
+          <button class="btn btn-link" type="button" data-back>Back</button>
+        </div>
+      </fieldset>
+    </form>
+    <div data-confirm hidden></div>
+  </div>
+
+  <aside class="summary" aria-label="Your booking">
+    <h2>Your booking</h2>
+    <dl class="sum-meta">
+      <div><dt>People</dt><dd data-sum-party>2</dd></div>
+      <div><dt>Day</dt><dd data-sum-day>Not chosen</dd></div>
+      <div><dt>Time</dt><dd data-sum-time>Not chosen</dd></div>
+      <div><dt>Seat</dt><dd data-sum-seat>Not chosen</dd></div>
+    </dl>
+    <p class="sum-note">Free to cancel. Order from the table QR code when you arrive.</p>
+  </aside>
+</main>
+</body>
+</html>
