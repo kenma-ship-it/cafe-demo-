@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book a table</title>
-  <meta name="description" content="Book a table and choose where you sit: the garden, the window bar, the long table or the reading nook.">
+  <title>Reserve a table</title>
+  <meta name="description" content="Reserve a table and choose where you sit: the patio, the window bar, the long table or the lounge corner.">
   <meta name="theme-color" content="#e4ebd8">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 <body data-page="book">
 <main id="main" class="wrap book-layout" data-wizard>
   <div class="book-main">
-    <header class="page-head page-head-tight"><h1>Book a table</h1></header>
+    <header class="page-head page-head-tight"><h1>Reserve a table</h1></header>
     <ol class="steps-nav" data-step-nav><li>When</li><li>Where</li><li>Your details</li></ol>
 
     <form id="booking" novalidate>
@@ -54,10 +54,10 @@
           <label class="field"><span>Name</span><input name="name" autocomplete="name" required minlength="2"></label>
           <label class="field"><span>Mobile number</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[\d+ \(\)\-]{10,}"></label>
         </div>
-        <label class="field" style="margin-top:1rem"><span>Anything else? <small>(optional)</small></span><textarea name="notes" placeholder="A birthday, a pram, a dog that likes the garden…"></textarea></label>
+        <label class="field" style="margin-top:1rem"><span>Anything else? <small>(optional)</small></span><textarea name="notes" placeholder="A birthday, a stroller, a dog that likes the patio…"></textarea></label>
         <p class="step-error" aria-live="polite"></p>
         <div class="step-actions">
-          <button class="btn btn-primary" type="submit">Book the table</button>
+          <button class="btn btn-primary" type="submit">Reserve the table</button>
           <button class="btn btn-link" type="button" data-back>Back</button>
         </div>
       </fieldset>
@@ -66,14 +66,14 @@
   </div>
 
   <aside class="summary" aria-label="Your booking">
-    <h2>Your booking</h2>
+    <h2>Your reservation</h2>
     <dl class="sum-meta">
       <div><dt>People</dt><dd data-sum-party>2</dd></div>
       <div><dt>Day</dt><dd data-sum-day>Not chosen</dd></div>
       <div><dt>Time</dt><dd data-sum-time>Not chosen</dd></div>
       <div><dt>Seat</dt><dd data-sum-seat>Not chosen</dd></div>
     </dl>
-    <p class="sum-note">Free to cancel. Order from the table QR code when you arrive.</p>
+    <p class="sum-note">Free to cancel. We hold your table for 15 minutes after your time.</p>
   </aside>
 </main>
 </body>

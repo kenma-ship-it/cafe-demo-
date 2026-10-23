@@ -1,92 +1,94 @@
 /* ============================================================
    EDIT THIS FILE to rebrand the demo for a new café.
-   Name, address, phone, hours, menu, tables and reviews
-   all flow from here into every page.
+   Name, address, phone, hours, currency, menu, seating and
+   reviews all flow from here into every page.
    ============================================================ */
 window.SITE = {
   id: 'little-fern',
   name: 'Little Fern',
-  tagline: 'Neighbourhood coffee, bakes and slow breakfasts. Order from your table.',
-  city: 'Bengaluru',
-  phone: '+91 99001 23456',
-  whatsapp: '919900123456',
-  email: 'hello@littlefern.cafe',
+  tagline: 'Specialty coffee, pastry baked in-house and brunch every day until 2.',
+  city: 'Austin',
+  phone: '(512) 555-0142',
+  whatsapp: '', // digits only for Gulf clients, e.g. '97142223344'. Empty = confirmations go by SMS.
+  email: 'hello@littlefern.coffee',
   address: {
-    lines: ['22, 11th Main, 4th Block', 'Jayanagar', 'Bengaluru 560011'],
-    street: '22, 11th Main, 4th Block, Jayanagar',
-    region: 'Karnataka', postcode: '560011', country: 'IN',
+    lines: ['418 South Congress Avenue', 'Austin, TX 78704'],
+    street: '418 South Congress Avenue',
+    region: 'TX', postcode: '78704', country: 'US',
   },
   social: [{ label: 'Instagram', href: 'https://instagram.com/' }],
   hours: {
-    sessions: [{ label: 'Open', open: '07:30', close: '22:00' }],
+    sessions: [{ label: 'Open', open: '07:00', close: '18:00' }],
     closedDays: [],
-    display: ['Every day, 7:30 am to 10 pm', 'Kitchen closes at 9:30 pm'],
+    display: ['Open daily, 7 am to 6 pm', 'Brunch until 2 pm'],
   },
-  currency: '₹',
-  locale: 'en-IN',
+  currency: 'USD', // ISO code: USD, AED, KWD …
+  currencyDigits: 2, // decimals shown: 2 for USD, 0 for AED, 3 for KWD
+  locale: 'en-US', // date style: en-US (October 24) or en-GB (24 October)
   refPrefix: 'LF-',
   schemaType: 'CafeOrCoffeeShop',
-  priceRange: '₹₹',
-  schemaExtra: { servesCuisine: 'Coffee, breakfast, bakery', acceptsReservations: true, menu: 'menu.html' },
+  priceRange: '$$',
+  schemaExtra: { servesCuisine: ['Coffee', 'Brunch', 'Bakery'], acceptsReservations: true, menu: 'menu.html' },
   demo: { busy: 30 },
-  tableCount: 12,
+  tableCount: 12, // table QR codes: tables.html prints one per table, each opens menu.html?table=N
   seating: [
-    { id: 'window', name: 'Window bar', note: 'Stools facing the street, good for one or two' },
-    { id: 'garden', name: 'Garden', note: 'Under the jacaranda, shaded until 4 pm' },
-    { id: 'communal', name: 'Long table', note: 'Shared, with plugs, laptop friendly' },
-    { id: 'nook', name: 'Reading nook', note: 'Two armchairs and a sofa, quiet' },
+    { id: 'window', name: 'Window bar', note: 'Stools facing the street, best for one or two', max: 2 },
+    { id: 'patio', name: 'Patio', note: 'Under the live oak, shaded until 4 pm' },
+    { id: 'communal', name: 'Long table', note: 'Shared, with outlets, laptop friendly' },
+    { id: 'lounge', name: 'Lounge corner', note: 'Armchairs and a sofa, the quiet end', max: 4 },
   ],
 
   nav: [
     { href: 'menu.html', label: 'Menu' },
+    { href: 'index.html#coffee', label: 'Our coffee' },
     { href: 'reviews.html', label: 'Reviews' },
-    { href: 'tables.html', label: 'Table QR codes' },
+    { href: 'index.html#visit', label: 'Visit' },
   ],
-  cta: { href: 'book.html', label: 'Book a table' },
+  cta: { href: 'book.html', label: 'Reserve' },
 
+  /* Dietary tags: V vegetarian, VG vegan, GF gluten-free. */
   menu: [
-    { id: 'coffee', name: 'Hot coffee', items: [
-      { id: 'esp', name: 'Espresso', desc: 'Single origin, Chikmagalur. Chocolate and cherry.', price: 140, veg: true },
-      { id: 'cap', name: 'Cappuccino', desc: 'Double shot, silky milk.', price: 210, veg: true, pop: true, img: '1572442388796-11668a67e53d' },
-      { id: 'flat', name: 'Flat white', desc: 'Less milk, more coffee.', price: 220, veg: true, pop: true, img: '1534778101976-62847782c213' },
-      { id: 'filter', name: 'Filter kaapi', desc: 'Brass dabarah, chicory blend, boiled milk.', price: 120, veg: true },
-      { id: 'mocha', name: 'Dark mocha', desc: '70% cacao, espresso, steamed milk.', price: 260, veg: true },
+    { id: 'coffee', name: 'Coffee', items: [
+      { id: 'esp', name: 'Espresso', desc: 'Rotating single origin. This month: Huila, Colombia.', price: 3.5, tags: ['VG'] },
+      { id: 'cortado', name: 'Cortado', desc: 'Equal parts espresso and steamed milk.', price: 4.25, tags: ['V'] },
+      { id: 'cap', name: 'Cappuccino', desc: 'Double shot, silky foam.', price: 4.75, tags: ['V'], pop: true, img: '1572442388796-11668a67e53d' },
+      { id: 'latte', name: 'Oat latte', desc: 'House-blend espresso with oat milk.', price: 5.25, tags: ['VG'], pop: true, img: '1534778101976-62847782c213' },
+      { id: 'drip', name: 'Drip coffee', desc: 'Free refills while you stay.', price: 3.25, tags: ['VG'] },
+      { id: 'mocha', name: 'Dark mocha', desc: '70% chocolate, espresso, steamed milk.', price: 5.5, tags: ['V'] },
     ] },
-    { id: 'cold', name: 'Cold coffee', items: [
-      { id: 'coldbrew', name: 'Cold brew', desc: 'Steeped 18 hours. Served black over ice.', price: 230, veg: true, pop: true, img: '1461023058943-07fcbe16d735' },
-      { id: 'tonic', name: 'Espresso tonic', desc: 'Tonic, orange peel, double shot.', price: 260, veg: true },
-      { id: 'frappe', name: 'Jaggery frappé', desc: 'Blended, palm jaggery, cream.', price: 280, veg: true },
+    { id: 'cold', name: 'Cold', items: [
+      { id: 'coldbrew', name: 'Cold brew', desc: 'Steeped 18 hours, served black over ice.', price: 4.75, tags: ['VG'], pop: true, img: '1461023058943-07fcbe16d735' },
+      { id: 'icedlatte', name: 'Iced honey latte', desc: 'Local wildflower honey, cinnamon.', price: 5.75, tags: ['V'] },
+      { id: 'tonic', name: 'Espresso tonic', desc: 'Tonic, orange peel, double shot.', price: 5.5, tags: ['VG'] },
+      { id: 'matcha', name: 'Iced matcha', desc: 'Ceremonial grade, oat milk.', price: 5.75, tags: ['VG'] },
     ] },
-    { id: 'tea', name: 'Tea and more', items: [
-      { id: 'chai', name: 'Masala chai', desc: 'Ginger, cardamom, made to order.', price: 110, veg: true },
-      { id: 'matcha', name: 'Iced matcha latte', desc: 'Ceremonial grade, oat milk.', price: 290, veg: true },
-      { id: 'cocoa', name: 'Hot chocolate', desc: 'Thick, with a toasted marshmallow.', price: 240, veg: true },
+    { id: 'brunch', name: 'Brunch', note: 'Served until 2 pm', items: [
+      { id: 'avo', name: 'Avocado toast', desc: 'Sourdough, soft eggs, chili crisp, lime.', price: 12.5, tags: ['V'], pop: true, img: '1541519227354-08fa5d50c44d' },
+      { id: 'tacos', name: 'Breakfast tacos', desc: 'Two flour tortillas, eggs, potato, salsa verde.', price: 10, tags: ['V'], pop: true, img: '1551504734-5ee1c4a1479b' },
+      { id: 'pancakes', name: 'Ricotta pancakes', desc: 'Blueberries, maple, whipped butter.', price: 13, tags: ['V'], img: '1506084868230-bb9d95c24759' },
+      { id: 'bowl', name: 'Yogurt and granola', desc: 'House granola, seasonal fruit, honey.', price: 9.5, tags: ['V', 'GF'] },
+      { id: 'eggcroissant', name: 'Egg and cheese croissant', desc: 'Soft scramble, aged cheddar, chives.', price: 9.75, tags: ['V'] },
     ] },
-    { id: 'breakfast', name: 'Breakfast', note: 'Served until 12 noon', items: [
-      { id: 'akuri', name: 'Akuri on sourdough', desc: 'Parsi-style spiced scrambled eggs.', price: 320, veg: false, pop: true },
-      { id: 'avo', name: 'Smashed avocado toast', desc: 'Chilli flakes, feta, lime.', price: 360, veg: true },
-      { id: 'pancakes', name: 'Ragi pancakes', desc: 'Banana, honey butter, berries.', price: 340, veg: true },
-      { id: 'bowl', name: 'Granola bowl', desc: 'House granola, curd, seasonal fruit.', price: 290, veg: true },
+    { id: 'pastry', name: 'Pastry', items: [
+      { id: 'croissant', name: 'Butter croissant', desc: 'Laminated here, baked from 6 am.', price: 4.25, tags: ['V'], pop: true, img: '1555507036-ab1f4038808a' },
+      { id: 'almond', name: 'Almond croissant', desc: 'Frangipane, toasted almonds.', price: 5.25, tags: ['V'] },
+      { id: 'bun', name: 'Cardamom bun', desc: 'Swedish-style, pearl sugar.', price: 4.75, tags: ['V'] },
+      { id: 'cookie', name: 'Chocolate chip cookie', desc: 'Brown butter, sea salt.', price: 3.5, tags: ['V'] },
+      { id: 'tart', name: 'Seasonal fruit tart', desc: 'Vanilla custard, whatever is ripe.', price: 6, tags: ['V'], img: '1495147466023-ac5c588e2e94' },
     ] },
-    { id: 'bakes', name: 'Bakes', items: [
-      { id: 'croissant', name: 'Butter croissant', desc: 'Laminated in-house, baked every morning.', price: 160, veg: true, pop: true, img: '1555507036-ab1f4038808a' },
-      { id: 'cinnamon', name: 'Cardamom bun', desc: 'Swedish-style, pearl sugar.', price: 180, veg: true },
-      { id: 'banana', name: 'Banana walnut loaf', desc: 'A thick slice, warmed.', price: 150, veg: true },
-      { id: 'cookie', name: 'Sea salt choc chip cookie', desc: 'Crisp edge, soft middle.', price: 120, veg: true },
-    ] },
-    { id: 'mains', name: 'Sandwiches and bowls', items: [
-      { id: 'panini', name: 'Pesto paneer panini', desc: 'Sun-dried tomato, rocket.', price: 380, veg: true },
-      { id: 'chicken', name: 'Chilli chicken sourdough', desc: 'Pulled chicken, pickled onion, slaw.', price: 420, veg: false },
-      { id: 'buddha', name: 'Millet buddha bowl', desc: 'Roast veg, hummus, tahini.', price: 390, veg: true },
+    { id: 'lunch', name: 'Lunch', items: [
+      { id: 'panini', name: 'Turkey pesto panini', desc: 'Provolone, roasted tomato, arugula.', price: 13.5, tags: [] },
+      { id: 'grain', name: 'Grain bowl', desc: 'Farro, roast vegetables, tahini, soft egg.', price: 14, tags: ['V'] },
+      { id: 'soup', name: 'Tomato soup and grilled cheese', desc: 'The rainy-day order.', price: 12, tags: ['V'] },
     ] },
   ],
 
   reviews: [
-    { name: 'Tara V.', rating: 5, date: '2026-10-19', tag: 'Ordered at the table', text: 'Scanned the code, ordered a flat white and a croissant, and it arrived before I had my laptop open. No waving at staff.' },
-    { name: 'Rohan B.', rating: 5, date: '2026-10-14', tag: 'Breakfast', text: 'The akuri is the real thing. Garden seats in the morning are the best in Jayanagar.' },
-    { name: 'Divya K.', rating: 4, date: '2026-10-06', tag: 'Working from the café', text: 'Plugs at the long table and decent wifi. Gets busy at weekends, so book.' },
-    { name: 'Arjun T.', rating: 5, date: '2026-09-28', tag: 'Booked a table', text: 'Booked the reading nook for my mum’s birthday. They had a candle in the cardamom bun.' },
-    { name: 'Sana Q.', rating: 4, date: '2026-09-17', tag: 'Takeaway', text: 'Cold brew is smooth and not bitter. Wish the cups were bigger.' },
-    { name: 'Manish L.', rating: 5, date: '2026-09-02', tag: 'Ordered at the table', text: 'Being able to add another coffee from the phone without getting up is dangerous. Love it.' },
+    { name: 'Taylor V.', rating: 5, date: '2026-10-19', tag: 'Brunch', text: 'The breakfast tacos are the real thing and the cortado is perfect. Patio seats in the morning are the best on South Congress.' },
+    { name: 'Marcus B.', rating: 5, date: '2026-10-14', tag: 'Coffee', text: 'Rotating single origin is always interesting, and the staff actually tell you about it if you ask.' },
+    { name: 'Priya K.', rating: 4, date: '2026-10-06', tag: 'Working from the café', text: 'Outlets at the long table and fast wifi. Gets busy on weekends, so reserve.' },
+    { name: 'Hannah T.', rating: 5, date: '2026-09-28', tag: 'Reserved a table', text: 'Reserved the lounge corner for my mom’s birthday. They brought a candle in a cardamom bun.' },
+    { name: 'Diego S.', rating: 4, date: '2026-09-17', tag: 'To go', text: 'Cold brew is smooth and not bitter. Wish the cups were bigger.' },
+    { name: 'Emily L.', rating: 5, date: '2026-09-02', tag: 'Brunch', text: 'Ordered from the table and a second coffee arrived without me getting up. Dangerous. Love it.' },
   ],
 };

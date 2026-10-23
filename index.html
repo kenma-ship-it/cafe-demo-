@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coffee, bakes and breakfast, ordered from your table</title>
-  <meta name="description" content="Neighbourhood café for coffee, fresh bakes and breakfast. Scan the code on your table to order, or book a seat in the garden.">
+  <title>Specialty coffee, pastry and brunch</title>
+  <meta name="description" content="Specialty coffee, pastry baked in-house and brunch every day until 2. See the menu or reserve a table.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=75">
-  <meta name="theme-color" content="#e4ebd8">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&w=1200&q=75">
+  <meta name="theme-color" content="#e6ecdc">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="core.css">
   <link rel="stylesheet" href="theme.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
   <script src="config.js" defer></script>
   <script src="core.js" defer></script>
   <script src="app.js" defer></script>
@@ -24,64 +23,81 @@
 <main id="main">
 
   <section class="hero wrap" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <h1 id="hero-title" class="hero-name" data-s="name">Little Fern</h1>
-      <p class="hero-lede">Coffee roasted in Chikmagalur, croissants laminated every morning, and breakfast until noon. Sit anywhere, scan the code on your table, and we bring it over.</p>
+    <h1 id="hero-title" class="hero-line">
+      <span class="sr-only"><span data-s="name">Little Fern</span>: </span>Good <span class="nw">coffee <span class="pill" style="--i:0"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=420&h=240&q=75" width="420" height="240" alt="" fetchpriority="high"></span>,</span>
+      warm <span class="nw">pastry <span class="pill" style="--i:1"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=420&h=240&q=75" width="420" height="240" alt=""></span></span>
+      and a <span class="nw">table <span class="pill" style="--i:2"><img src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&w=420&h=240&q=75" width="420" height="240" alt=""></span></span>
+      that feels like yours.
+    </h1>
+    <div class="hero-meta">
+      <p class="status" data-open-status></p>
+      <p data-hero-address>418 South Congress Avenue</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="book.html">Book a table</a>
-        <a class="btn btn-ghost" href="menu.html">See the menu</a>
-      </div>
-      <p class="status hero-status" data-open-status></p>
-    </div>
-    <div class="hero-demo">
-      <div class="phone">
-        <iframe src="menu.html?table=4&amp;embed=1" title="Live preview of the table menu, as seen at table 4" loading="lazy"></iframe>
-      </div>
-      <div class="qr-card">
-        <div class="qr" data-hero-qr></div>
-        <p>Scan to order as table 4. It works.</p>
+        <a class="btn btn-primary" href="menu.html">See the menu</a>
+        <a class="btn btn-ghost" href="book.html">Reserve a table</a>
       </div>
     </div>
   </section>
 
-  <section class="how" aria-labelledby="how-title">
-    <div class="wrap">
-      <h2 id="how-title">Ordering from your table</h2>
-      <ol class="how-steps">
-        <li><h3>Scan the code</h3><p>Every table has its own QR code, so we know where you are sitting.</p></li>
-        <li><h3>Pick what you want</h3><p>Add notes like oat milk or extra hot. Order again any time without getting up.</p></li>
-        <li><h3>We bring it over</h3><p>Follow your order from the counter to your table. Pay at the counter when you leave.</p></li>
-      </ol>
-      <a class="btn btn-link" href="tables.html">See the printable table codes</a>
-    </div>
-  </section>
+  <figure class="wide wrap">
+    <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=2200&h=1000&q=72" width="2200" height="1000" alt="The café floor with plants, wooden tables and morning light" loading="lazy">
+  </figure>
 
-  <section class="popular wrap" aria-labelledby="pop-title">
+  <section class="counter wrap" aria-labelledby="counter-title">
     <div class="sec-head">
-      <h2 id="pop-title">Most ordered this week</h2>
+      <h2 id="counter-title">On the counter</h2>
       <a class="btn btn-link" href="menu.html">Full menu</a>
     </div>
     <ul class="pop-grid" data-popular></ul>
   </section>
 
-  <section class="band" aria-labelledby="band-title">
-    <div class="wrap band-grid">
-      <figure class="band-img"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&h=900&q=75" width="1200" height="900" alt="The café with plants, wooden tables and morning light" loading="lazy"></figure>
+  <section class="coffee" id="coffee" aria-labelledby="coffee-title">
+    <div class="wrap coffee-grid">
+      <figure class="coffee-img"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1000&h=1200&q=75" width="1000" height="1200" alt="Fresh-roasted coffee beans" loading="lazy"></figure>
       <div>
-        <h2 id="band-title">Save a seat before the weekend rush</h2>
-        <p>Book a spot and choose where you sit. Tables are held for 20 minutes.</p>
-        <ul class="plain seat-list" data-seats></ul>
-        <a class="btn btn-primary" href="book.html">Book a table</a>
+        <h2 id="coffee-title">Coffee we would drink every day</h2>
+        <p>Our house espresso is a chocolatey blend from a small-batch roaster across town, roasted on Mondays and in our hopper by Wednesday. Next to it sits a single origin that changes each month.</p>
+        <p>Every drink is pulled on a lever machine and poured by someone who has made a few thousand of them. Oat, almond and whole milk cost the same.</p>
+        <dl class="facts">
+          <div><dt>Roasted</dt><dd>Weekly</dd></div>
+          <div><dt>Single origin</dt><dd>Changes monthly</dd></div>
+          <div><dt>Pastry</dt><dd>Baked from 6 am</dd></div>
+        </dl>
       </div>
+    </div>
+  </section>
+
+  <section class="brunch wrap" aria-labelledby="brunch-title">
+    <figure class="brunch-img"><img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1400&h=1100&q=75" width="1400" height="1100" alt="A brunch table with eggs, toast, fruit and coffee" loading="lazy"></figure>
+    <div class="brunch-card">
+      <h2 id="brunch-title">Brunch, every day until 2</h2>
+      <ul class="plain brunch-list" data-brunch></ul>
+      <a class="btn btn-primary" href="book.html">Reserve for brunch</a>
     </div>
   </section>
 
   <section class="snip wrap" aria-labelledby="snip-title">
     <div class="sec-head">
-      <h2 id="snip-title">From people who sat here</h2>
+      <h2 id="snip-title">What regulars say</h2>
       <a class="btn btn-link" href="reviews.html">All reviews</a>
     </div>
     <ul class="snip-list" data-snip></ul>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap visit-grid">
+      <div>
+        <h2 id="visit-title">Come by</h2>
+        <address data-address></address>
+        <ul class="plain visit-hours" data-hours></ul>
+        <p class="status" data-open-status></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="book.html">Reserve a table</a>
+          <a class="btn btn-ghost" data-directions href="#">Get directions</a>
+        </div>
+      </div>
+      <figure class="visit-img"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&h=900&q=75" width="1200" height="900" alt="Tables by the big windows" loading="lazy"></figure>
+    </div>
   </section>
 
 </main>
